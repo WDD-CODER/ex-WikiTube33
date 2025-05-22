@@ -32,7 +32,7 @@ function getWikipediaQuery(onSuccess) {
 function isWikiInCache(str) {
     if (!gCache.length) return false 
     const parameter = 'searchTitle'
-    const exist = gCache.some(item => item[parameter].title === str[parameter].title)
+    const exist = gCache.some(item => item[parameter] === str)
     return exist
 }
 
@@ -42,6 +42,8 @@ function getGCache() {
 
 // UPDATE 
 function formattedWikiData(data,searchValue) {
+    console.log("🚀 ~ formattedWikiData ~ searchValue:", searchValue)
+    console.log("🚀 ~ formattedWikiData ~ data:", data)
     // const suggestion = data['searchinfo'].suggestion
     var formattedArray = data.search.map(item => {
         const { title, snippet } = item
