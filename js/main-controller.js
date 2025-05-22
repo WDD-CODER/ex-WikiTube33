@@ -3,10 +3,10 @@
 // LIST
 // להכין סרוויס וקונטרולר לכל ישות בנפרד
 
-// function onInit() {
-//     renderVideos()
-//     onRenderWiki()
-// }
+function onInit() {
+    renderVideos()
+    onRenderWiki()
+}
 
 // // CREATE
 // // READ
