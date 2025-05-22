@@ -17,7 +17,6 @@ function getWikipediaQuery(onSuccess) {
         return res.data.query
     })
     .then(ans => {
-        console.log("🚀 ~ getWikipediaQuery ~ ans:", ans)
         let formattedAns = formattedWikiData(ans,searchValue)
         updateGCache(formattedAns)
         saveToStorage(G_CACHE_KEY, gCache)
@@ -31,13 +30,11 @@ function getWikipediaQuery(onSuccess) {
 // CREATE
 // READ
 function isWikiInCache(str) {
-    console.log("🚀 ~ isWikiInCache ~ gCache:", gCache)
     if (!gCache.length) return false 
     const parameter = 'searchTitle'
-    const exist = gCache.some(item => item[parameter] === str)
+    const exist = gCache.some(item => item[parameter].title === str[parameter].title)
     return exist
 }
-
 
 function getGCache() {
     return gCache

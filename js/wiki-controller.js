@@ -7,8 +7,6 @@ function onRenderWiki() {
 
 
 function renderWikiArticle(ans) {
-    console.log("🚀 ~ renderWikiArticle ~ ans:", ans)
-    
     var strMainHTML = []
     ans.forEach((article, idx) => {
         if (article.articleTitle) {
