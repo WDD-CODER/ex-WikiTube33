@@ -2,6 +2,11 @@
 
 // LIST
 
+function onInit() {
+    renderVideos()
+    // onRenderWiki()
+}
+
 function renderVideos(str) {
     getVideos(str)
     .then(ans => {
