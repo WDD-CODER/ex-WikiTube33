@@ -10,7 +10,6 @@ function onInit() {
 function renderVideos(str) {
     getVideos(str)
     .then(ans => {
-            console.log("🚀 ~ renderVideos ~ ans:", ans)
             renderPreviewVideos(ans)
             renderVideoPlayer(ans[4].id)
             onRenderWiki()
@@ -19,8 +18,8 @@ function renderVideos(str) {
 }
 
 function renderPreviewVideos(ans) {
-    var res = ans.map((video, idx) => {
-        if (video.searchValue) {
+    var res = getGCache().map((video, idx) => {
+        if (video.searchValue && video.searchValue === getGVideo() ) {
         const strHTML = `
              <div class="video-card" id="video${idx}">
                 <figure>
@@ -55,8 +54,10 @@ function renderVideoPlayer() {
 
 // READ
 
-function onSearchVideo() {
-
+function onSearchVideo(ev){
+ev.preventDefault()
+var str = document.querySelector('#searchBar').value
+renderVideos(str)
 }
 
 // UPDATE

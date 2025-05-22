@@ -4,20 +4,20 @@ const YOUTUBE_KEY = 'AIzaSyAI1_lARUYgn0v1k21qP4EMYDRtlsgx_10'
 const G_CACHE_KEY = 'gCacheDB'
 
 var gCache = loadFromStorage(G_CACHE_KEY) || null
-var gVideo = null
+var gSearchValue = null
 
 // LIST
 
 function onAskVideos(str) {
     const searchValue = str || 'Music videos'
-    gVideo = searchValue
+    gSearchValue = searchValue
     if (isVideoInCache(searchValue)) {
         console.log('from cache')
         // return gCache
         return Promise.resolve(gCache)
     }
 
-    const YOUTUBE_OPTIONS5_KEY = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${YOUTUBE_KEY}&q=${searchValue}`
+    const YOUTUBE_OPTIONS5_KEY = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${YOUTUBE_KEY}&q=${searchValue}&maxResults=5`
     return axios.get(YOUTUBE_OPTIONS5_KEY)
         .then(res => {
             console.log('from Ajax')
@@ -65,7 +65,8 @@ function getVideos(str) {
 }
 
 function getGVideo() {
-    return gVideo
+    if (!gSearchValue) gSearchValue = gCache[0].searchValue
+    return gSearchValue
 }
 function getGCache() {
     return gCache
@@ -73,14 +74,12 @@ function getGCache() {
 
 // UPDATE
 function updateGCache(data) {
-    console.log("🚀 ~ updateGCache ~ data:", data)
     const parameter = data[0].searchTitle ? 'articleTitle' : 'videoTitle'
     if (!getGCache()) gCache = []
     data.forEach(newItem => {
         const exist = gCache.some(item => item[parameter] === newItem[parameter])
         if (!exist) gCache.push(newItem)
     })
-    console.log("🚀 ~ updateGCache ~ gCache:", gCache)
     return gCache
 }
 
