@@ -1,15 +1,17 @@
 'use strict';
 
 // LIST
-function onRenderWiki() {
-    getWikipediaQuery(renderWikiArticle)
+function onRenderWiki(str) {
+    getWikipediaQuery(str)
+    .then(renderWikiArticle)
+    // .then(ans => renderWikiArticle(ans))
 }
 
 
 function renderWikiArticle(ans) {
     var strMainHTML = []
     ans.forEach((article, idx) => {
-        if (article.articleTitle) {
+        if (article.articleTitle && article.searchTitle === getGVideo() ) {
             let strHTML = `
             <div class="wiki-article" id="article${idx}">
             <h4 class="article-title">${article.articleTitle}</h4>  
@@ -19,6 +21,7 @@ function renderWikiArticle(ans) {
             strMainHTML.push(strHTML)
         }
     })
+    
     document.querySelector('.wiki-info').innerHTML = strMainHTML.join('')
 }
 

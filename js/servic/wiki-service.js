@@ -3,24 +3,24 @@
 // const WIKI_CACHE_KEY = 'wikiCacheDB'
 
 
-function getWikipediaQuery(onSuccess) {
-    const searchValue = 'David Bowie'
+function getWikipediaQuery(str) {
+    const searchValue = str || getGVideo()
     const WikipediaUrl = `https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=${searchValue}&srlimit=5&format=json`
     if (isWikiInCache(searchValue)) {
         console.log('from cache')
-        return Promise.resolve(gCache).then(onSuccess)
+        return Promise.resolve(gCache)
     }
-    
+
     return axios.get(WikipediaUrl)
-    .then(res => {
-        console.log('from Ajax')
-        return res.data.query
-    })
-    .then(ans => {
-        let formattedAns = formattedWikiData(ans,searchValue)
-        updateGCache(formattedAns)
-        saveToStorage(G_CACHE_KEY, gCache)
-        onSuccess(formattedAns)
+        .then(res => {
+            console.log('from Ajax')
+            return res.data.query
+        })
+        .then(ans => {
+            let formattedAns = formattedWikiData(ans, searchValue)
+            updateGCache(formattedAns)
+            saveToStorage(G_CACHE_KEY, gCache)
+            return Promise.resolve(formattedAns)
         })
         .catch(() => { console.log('problem loading wiki api') })
 
@@ -30,7 +30,7 @@ function getWikipediaQuery(onSuccess) {
 // CREATE
 // READ
 function isWikiInCache(str) {
-    if (!gCache.length) return false 
+    if (!gCache.length) return false
     const parameter = 'searchTitle'
     const exist = gCache.some(item => item[parameter] === str)
     return exist
@@ -41,10 +41,11 @@ function getGCache() {
 }
 
 // UPDATE 
-function formattedWikiData(data,searchValue) {
-    console.log("🚀 ~ formattedWikiData ~ searchValue:", searchValue)
-    console.log("🚀 ~ formattedWikiData ~ data:", data)
-    // const suggestion = data['searchinfo'].suggestion
+function formattedWikiData(data, searchValue) {
+    if (!data.search) {
+        alert('No info in wiki regarding your search')
+        return
+    }
     var formattedArray = data.search.map(item => {
         const { title, snippet } = item
         let text = snippet
