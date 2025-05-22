@@ -6,19 +6,17 @@
 function getWikipediaQuery() {
     const searchValue = 'David Bowie'
     const WikipediaUrl = `https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=${searchValue}&srlimit=5&format=json`
-    // if (isWikiInCache(searchValue)) {
-    //     console.log('from cache')
-    //     return Promise.resolve(gCache)
-    // }
+    if (isWikiInCache(searchValue)) {
+        console.log('from cache')
+        return Promise.resolve(gCache)
+    }
 
     return axios.get(WikipediaUrl)
         .then(res => {
             console.log('from Ajax')
-
             return res.data.query
         })
         .then(ans => {
-            console.log("🚀 ~ getWikipediaQuery ~ ans:", ans)
             let formattedAns = formattedWikiData(ans,searchValue)
 
             updateGCache(formattedAns)
@@ -33,7 +31,7 @@ function getWikipediaQuery() {
 // CREATE
 // READ
 function isWikiInCache(str) {
-    if (!gCache) return false 
+    if (!gCache.length) return false 
     const parameter = 'searchTitle'
     const exist = gCache.some(item => item[parameter] === str)
     return exist
@@ -46,7 +44,6 @@ function getGCache() {
 
 // UPDATE 
 function formattedWikiData(data,searchValue) {
-    console.log("🚀 ~ formattedWikiData ~ data:", data)
     // const suggestion = data['searchinfo'].suggestion
     var formattedArray = data.search.map(item => {
         const { title, snippet } = item
@@ -56,7 +53,6 @@ function formattedWikiData(data,searchValue) {
         const formattedData = { searchTitle, articleTitle, text }
         return formattedData
     })
-    console.log("🚀 ~ formattedWikiData ~ formattedArray:", formattedArray)
     return formattedArray
 }
 
