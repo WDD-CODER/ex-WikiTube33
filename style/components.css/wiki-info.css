@@ -1,0 +1,29 @@
+.wiki-info {
+    grid-column: 2;
+    border: 1px black solid;
+    width: 90%;
+}
+
+.wiki-article {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em;
+    gap: 1em;
+
+    text-align:justify;
+
+
+    border: 1px black solid;
+    background-color: var(--clr-sec-base);
+
+}
+
+.wiki-article h4{
+  margin-inline-start: 2em;
+    text-decoration:underline;
+
+    text-underline-offset: 4px;
+    text-decoration-color: var(--clr-black-base);
+
+}

@@ -11,6 +11,8 @@
 // // CREATE
 function uuuuuu(){
     ccascascascasc
+}function yourwok(){
+    ccccc
 }
 // // READ
 

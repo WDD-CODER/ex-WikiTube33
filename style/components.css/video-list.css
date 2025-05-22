@@ -1,0 +1,40 @@
+.video-list {
+    grid-column: 1;
+    grid-row: 1/4;
+
+    justify-items: center;
+
+    padding: .5em;
+
+    width: 100%;
+
+    border: 1px black solid;
+}
+
+.video-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+align-items: center;
+
+gap: .25em;
+    width: 100%;
+
+    padding: .5em;
+
+    border: 1px black solid;
+}
+
+.video-card p{
+    grid-column: 1;
+}
+
+.video-info{
+    grid-column: 2;
+    grid-row: 1/3;
+
+}
+
+.video-info h4{
+    margin-bottom: 1em;
+}

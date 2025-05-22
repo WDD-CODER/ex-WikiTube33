@@ -1,0 +1,32 @@
+/* pallette */
+
+:root {
+    /*Colors */
+    /* first Family */
+    --clr-primary--1: #353535;
+    --clr-primary-base: #1E1E1E;
+    --clr-primary-1: #0e0e0e;
+
+    /* sec Family */
+    --clr-sec--1: #68a2ff;
+    --clr-sec-base: #3B82F6;
+    --clr-sec-1: #2a5fb4;
+
+    /* last Family */
+    --clr-third--1: #e7e7e7;
+    --clr-third-base: #d6d6d6;
+    --clr-third-1: #aaaaaa;
+
+
+
+    /* Base Colors */
+    --clr-black-base: #111111;
+    --clr-white-base: #f2f5fa;
+
+    /* Generale component styling */
+
+    /* Break Pointes  */
+    /* --L: 1000px;
+    --M: 900px;
+    --S: 600px; */
+}
