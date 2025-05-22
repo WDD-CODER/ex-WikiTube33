@@ -64,8 +64,6 @@ function getVideos(str) {
     }
 }
 
-
-
 function getGVideo() {
     return gVideo
 }
