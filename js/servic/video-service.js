@@ -32,7 +32,60 @@ function onAskVideos(str) {
 
 }
 
-// CREATE
+function addVideoToCache(data) {
+    const parameter = 'videoTitle'
+    data.forEach(newItem => {
+        const exist = gCache.some(item => item[parameter] === newItem[parameter])
+        if (!exist) gCache.push(newItem)
+    })
+    return gCache
+}
+
+function publishTime(str) {
+    const [year, month, day] = str.split('T')[0].split('-')
+    return `${day}/${month}/${year}`
+}
+
 // READ
+
+function isVideoInCache(searchValue) {
+    // const parameter = data.videoTitle ? 'videoTitle' : 'articleTitle'
+    if (!gCache) return false
+    return gCache.some((item, idx) => item.searchValue === searchValue)
+}
+
+function getVideos(str) {
+    if (!gCache || str) {
+        return onAskVideos(str)
+            .then(() => gCache)
+    } else {
+        console.log('from cache')
+        return Promise.resolve(gCache)
+    }
+}
+
+
+
+function getGVideo() {
+    return gVideo
+}
+function getGCache() {
+    return gCache
+}
+
 // UPDATE
+
+function formattedVideoData(data, searchValue) {
+    var formattedArray = data.map(item => {
+        const { id, snippet } = item
+        let videoId = id.videoId
+        let imgUrl = snippet.thumbnails.default.url
+        let description = snippet.description
+        let dateOfPublish = publishTime(snippet.publishTime)
+        let videoTitle = snippet.title
+        const formattedData = { searchValue, videoTitle, id: videoId, description, dateOfPublish, imgUrl }
+        return formattedData
+    })
+    return formattedArray
+}
 // DELETE
