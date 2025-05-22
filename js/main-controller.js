@@ -5,7 +5,7 @@
 
 function onInit() {
     renderVideos()
-    onRenderWiki()
+    // onRenderWiki()
 }
 
 // // CREATE

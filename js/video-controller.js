@@ -8,6 +8,7 @@ function renderVideos(str) {
             console.log("🚀 ~ renderVideos ~ ans:", ans)
             renderPreviewVideos(ans)
             renderVideoPlayer(ans[4].id)
+            onRenderWiki()
         })
         .catch(err => console.log(err))
 }
