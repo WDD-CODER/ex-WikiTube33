@@ -12,12 +12,13 @@ function renderVideos(str) {
     .then(ans => {
             renderPreviewVideos(ans)
             renderVideoPlayer(ans[4].id)
-            onRenderWiki()
+            onRenderWiki(str)
         })
         .catch(err => console.log(err))
 }
 
 function renderPreviewVideos(ans) {
+    console.log("🚀 ~ renderPreviewVideos ~ ans:", ans)
     var res = getGCache().map((video, idx) => {
         if (video.searchValue && video.searchValue === getGVideo() ) {
         const strHTML = `
