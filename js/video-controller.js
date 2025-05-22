@@ -33,6 +33,17 @@ function renderPreviewVideos(ans) {
     document.querySelector('.video-list').innerHTML = res.join('')
 }
 
+//לא מבין למה זה עובד רק עם הקישור הקבוע שקבלתי באינטרנט ולא עם התעודת זהות
+
+function renderVideoPlayer() {
+    const id = 'tgbNymZ7vqY'
+    const videoUrl = `https://www.youtube.com/embed/${id}`
+   let elIframe = document.querySelector('.video-player')
+   elIframe.onload = onShowVideo()
+   elIframe.src = videoUrl
+}
+
+
 // CREATE
 
 
