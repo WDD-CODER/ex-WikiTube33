@@ -1,0 +1,14 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    grid-column: 2;
+    justify-items: center;
+
+    padding: 1em;
+    gap: 1em;
+
+    width: 100%;
+    border: 1px black solid;
+    background-color: var(--clr-primary--1);
+}

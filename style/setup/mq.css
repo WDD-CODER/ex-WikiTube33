@@ -1,0 +1,9 @@
+/* Mobile only */
+@media (max-width:735px) {}
+
+/* Medium */
+@media (min-width: 780px) {}
+
+/* Large  */
+@media (min-width: 1000px) {}
+
