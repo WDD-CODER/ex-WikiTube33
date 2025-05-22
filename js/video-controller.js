@@ -55,6 +55,14 @@ function onSearchVideo() {
 
 // UPDATE
 
+function onShowVideoCard(idx) {
+    document.querySelector('.video-list').hidden = false
+}
+
+function onShowVideo() {
+    document.querySelector('.video-player').hidden = false
+}
+
 // DELETE
 
 
