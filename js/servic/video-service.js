@@ -84,10 +84,12 @@ function updateGCache(data) {
 }
 
 function formattedVideoData(data, searchValue) {
+    console.log("🚀 ~ formattedVideoData ~ data:", data)
     var formattedArray = data.map(item => {
         const { id, snippet } = item
         let videoId = id.videoId
-        let imgUrl = snippet.thumbnails.default.url
+        let imgUrl = snippet.thumbnails.medium.url
+        console.log("🚀 ~ formattedVideoData ~ imgUrl:", imgUrl)
         let description = snippet.description
         let dateOfPublish = publishTime(snippet.publishTime)
         let videoTitle = snippet.title
