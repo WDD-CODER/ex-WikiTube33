@@ -1,27 +1,108 @@
-* {
-  margin: 0;
-  padding: 0;
+/* Box sizing for sanity */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: sans-serif;
+/* Remove margin & padding noise */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
 }
 
-img, video {
-  max-width: 100%;
-  height: auto;
+/* Body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+}
+
+/* Reset media elements */
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
+  /* max-width: 100%; */
+  height: auto;
+  border-radius: 2vh;
 }
 
-button, input, textarea {
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Anchor defaults */
+a {
+  text-decoration: none;
+  color: inherit;
+  text-decoration-skip-ink: auto;
+}
+
+/* Headings & paragraphs */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Form elements reset */
+input,
+button,
+textarea,
+select {
   font: inherit;
   border: none;
   background: none;
   outline: none;
+  max-width: 100%;
+  color: inherit;
 }
 
-ul, ol {
-  list-style: none;
+/* Accessible motion and scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
+
+/* Optional: Dark mode hint */
+html {
+  color-scheme: light dark;
+}
+
+/* Does:
+✔️ Normalizes layout spacing
+✔️ Resets box-sizing, media, forms
+✔️ Preserves default element visibility
+✔️ Enables smooth scroll & dark mode support
+✔️ Sets safe, system-based font stack
+
+Doesn’t:
+❌ Overwrite native form behaviors
+❌ Force styles or typography choices
+❌ Hide unstyled elements or interactivity */
