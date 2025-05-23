@@ -1,7 +1,8 @@
 .wiki-info {
+    display: grid;
     grid-column: 2;
-    border: 1px black solid;
-    width: 90%;
+    gap: 1em;
+    /* border: 1px black solid; */
 }
 
 .wiki-article {
@@ -11,17 +12,17 @@
     padding: 1em;
     gap: 1em;
 
-    text-align:justify;
+    text-align: justify;
 
-
+    border-radius: 2vh;
     border: 1px black solid;
     background-color: var(--clr-sec-base);
 
 }
 
-.wiki-article h4{
-  margin-inline-start: 2em;
-    text-decoration:underline;
+.wiki-article h4 {
+    margin-inline-start: 2em;
+    text-decoration: underline;
 
     text-underline-offset: 4px;
     text-decoration-color: var(--clr-black-base);

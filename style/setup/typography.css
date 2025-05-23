@@ -1,14 +1,14 @@
-/* @font-face {
-	font-family: fa-brands;
-	src: url('/style/assets/fonts/fa/fa-brands-400.ttf');
+@font-face {
+	font-family: 'fredoka';
+	src: url('/style/assaets/fonts/Fredoka/static/Fredoka-Regular.ttf');
 }
 
 @font-face {
-	font-family: fa-solid;
-	src: url('/style/assets/fonts/fa/fa-solid-900.ttf');
+	font-family: 'Rubik_Doodle_Shadow';
+	src: url('/style/assaets/fonts/Rubik_Doodle_Shadow/RubikDoodleShadow-Regular.ttf');
 }
 
-.fa::before {
+/* .fa::before {
 	font-family: fa-brands;
 }
 

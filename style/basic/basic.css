@@ -6,20 +6,12 @@
 
 html {
     margin: 1em;
+
+    font-family: 'fredoka';
+    font-size: 14px;
+
     color: var(--clr-white-base);
     background: var(--clr-primary-base);
-}
-
-body {
-    display: grid;
-    grid-template-columns: 12px 1fr 12px;
-
-    justify-items: center;
-
-    padding: 1em;
-
-    border: 1px black solid;
-    background-color: var(--clr-primary--1);
 }
 
 

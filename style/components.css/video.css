@@ -8,23 +8,15 @@
     padding: .5em;
     gap: 1em;
 
-    width: 100%;
-
-    border: 1px black solid;
+    /* border: 1px black solid; */
 }
 
 .video-card {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    /* place-items: center; */
-    /* gap: .25em; */
-    /* width: 100%;
-    height: 250px; */
-
+    gap: .25em;
     padding: .5em;
-
-
 
     border-radius: 2vh;
     border: 1px black solid;
@@ -35,7 +27,10 @@
     grid-row: 1/3;
     justify-self: center;
     align-self: center;
-    /* place-self: center; */
+}
+
+figure img{
+    width: 100%;
 }
 
 .video-card p {
@@ -44,8 +39,6 @@
 
 .video-info {
     grid-column: 1;
-    /* grid-row: 1/3; */
-
 }
 
 .video-info h4 {
@@ -54,9 +47,8 @@
 
 .video-player {
     grid-column: 2;
-    /* grid-row: 2; */
-    width: 90%;
-    height: 400px;
+    width: 100%;
+    min-height: 400px;
     
     border-radius: 2vh;
     border: 1px black solid;

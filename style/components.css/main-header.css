@@ -1,0 +1,10 @@
+.main-header {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+
+    font-family: 'Rubik_Doodle_Shadow';
+    font-size: 4rem;
+
+    color: var(--clr-white-base);
+    letter-spacing: 10px;
+}

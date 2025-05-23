@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body onload="onInit()">
-    <h2 class="main header">WikiTube</h2>
-    <main class="main-layout">
+<body onload="onInit()" class="main-layout">
+    <h2 class="main-header">WikiTube</h2>
+    <main class="main-content-layout">
         <div class="search-bar">
             <form onsubmit="onSearchVideo(event)">
                 <input type="text" id="searchBar" placeholder="Search for video">
@@ -18,7 +18,7 @@
         </div>
         <section class="video-list container" hidden>
         </section>
-        <iframe width="420" height="315" src="" class="video-player" hidden>
+        <iframe src="" class="video-player" hidden>
         </iframe>
         <div class="wiki-info container"></div>
     </main>

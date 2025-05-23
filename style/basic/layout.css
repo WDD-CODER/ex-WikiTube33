@@ -1,14 +1,26 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: minmax(30px, auto) 1fr minmax(30px, auto);
+
+    justify-items: center;
+
+    padding: .5em;
+
+    border: 1px black solid;
+    background-color: var(--clr-primary--1);
+}
+
+
+.main-content-layout {
+    display: grid;
+    /* grid-template-columns: 40% 60%; */
 
     grid-column: 2;
     justify-items: center;
 
-    padding: 1em;
+    /* padding: 1em; */
     gap: 1em;
 
     width: 100%;
-    border: 1px black solid;
     background-color: var(--clr-primary--1);
 }
