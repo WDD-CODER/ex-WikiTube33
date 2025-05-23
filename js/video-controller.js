@@ -1,15 +1,22 @@
 'use strict';
-
+const defaultSearchValue = 'Cooking in vacuum'
 // LIST
 
 function onInit() {
-    renderVideos()
+    ApplyFirstSearch()
+    // renderVideos()
     // onRenderWiki()
 }
 
+function ApplyFirstSearch() {
+    document.querySelector('#searchBar').value = defaultSearchValue
+    renderVideos(defaultSearchValue)
+}
+
+
 function renderVideos(str) {
     getVideos(str)
-    .then(ans => {
+        .then(ans => {
             renderPreviewVideos(ans)
             renderVideoPlayer(ans[4].id)
             onRenderWiki(str)
@@ -19,20 +26,20 @@ function renderVideos(str) {
 
 function renderPreviewVideos(ans) {
     var res = getGCache().map((video, idx) => {
-        if (video.searchValue && video.searchValue === getGVideo() ) {
-        const strHTML = `
+        if (video.searchValue && video.searchValue === getGVideo()) {
+            const strHTML = `
              <div class="video-card" id="video${idx}">
                 <figure>
                     <img onload="onShowVideoCard(${idx})" class="video-img" src="${video.imgUrl}" alt="video image">
                 </figure>
                 <div class="video-info">
                   <h4 class="video-title">${video.videoTitle}</h4>  
-                  <time data-time="${video.dateOfPublish}" class="video-publishTime">${video.dateOfPublish}</time>
+                  <time data-time="${video.dateOfPublish}" class="video-publishTime">Release date :${video.dateOfPublish}</time>
                   </div>
                   <p class="description">${video.description}</p>
             </div>
  `
-        return strHTML
+            return strHTML
         }
     })
     document.querySelector('.video-list').innerHTML = res.join('')
@@ -43,9 +50,9 @@ function renderPreviewVideos(ans) {
 function renderVideoPlayer() {
     const id = 'tgbNymZ7vqY'
     const videoUrl = `https://www.youtube.com/embed/${id}`
-   let elIframe = document.querySelector('.video-player')
-   elIframe.onload = onShowVideo()
-   elIframe.src = videoUrl
+    let elIframe = document.querySelector('.video-player')
+    elIframe.onload = onShowVideo()
+    elIframe.src = videoUrl
 }
 
 
@@ -54,10 +61,10 @@ function renderVideoPlayer() {
 
 // READ
 
-function onSearchVideo(ev){
-ev.preventDefault()
-var str = document.querySelector('#searchBar').value
-renderVideos(str)
+function onSearchVideo(ev) {
+    ev.preventDefault()
+    var str = document.querySelector('#searchBar').value
+    renderVideos(str)
 }
 
 // UPDATE
