@@ -18,7 +18,6 @@ function renderVideos(str) {
 }
 
 function renderPreviewVideos(ans) {
-    console.log("🚀 ~ renderPreviewVideos ~ ans:", ans)
     var res = getGCache().map((video, idx) => {
         if (video.searchValue && video.searchValue === getGVideo() ) {
         const strHTML = `
