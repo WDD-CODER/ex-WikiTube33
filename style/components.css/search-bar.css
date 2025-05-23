@@ -1,6 +1,5 @@
 .search-bar {
     grid-column: 2;
-    /* grid-row: 1; */
     width: 80%;
     height: 3em;
 
@@ -12,3 +11,4 @@
     background-color: var(--clr-third--1);
     border: 1px black solid;
 }
+
