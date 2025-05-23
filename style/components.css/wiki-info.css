@@ -16,8 +16,9 @@
 
     border-radius: 2vh;
     border: 1px black solid;
-    background-color: var(--clr-sec-base);
 
+color: var(--clr-primary-base);
+    background-color: var(--clr-sec-1);
 }
 
 .wiki-article h4 {
@@ -25,6 +26,6 @@
     text-decoration: underline;
 
     text-underline-offset: 4px;
-    text-decoration-color: var(--clr-black-base);
+    text-decoration-color: var(--clr-primary-base);
 
 }

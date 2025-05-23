@@ -7,12 +7,6 @@
 
 /* Remove margin & padding noise */
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p,
 ul,
 ol,
@@ -27,7 +21,7 @@ dd {
 /* Body defaults */
 body {
   min-height: 100vh;
-  line-height: 1.5;
+  /* line-height: 1.5; */
 }
 
 /* Reset media elements */
@@ -62,11 +56,14 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
+  padding: 0;
   text-wrap: balance;
 }
 
 p {
   text-wrap: pretty;
+  margin: 0;
 }
 
 /* Form elements reset */
@@ -83,16 +80,8 @@ select {
 }
 
 /* Accessible motion and scrolling */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
 
 /* Optional: Dark mode hint */
-html {
-  color-scheme: light dark;
-}
 
 /* Does:
 ✔️ Normalizes layout spacing

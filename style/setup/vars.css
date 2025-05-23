@@ -3,19 +3,21 @@
 :root {
     /*Colors */
     /* first Family */
+    --clr-primary--2: #4c4c4c;
     --clr-primary--1: #353535;
     --clr-primary-base: #1E1E1E;
     --clr-primary-1: #0e0e0e;
 
     /* sec Family */
-    --clr-sec--1: #68a2ff;
-    --clr-sec-base: #3B82F6;
-    --clr-sec-1: #2a5fb4;
+    --clr-sec--1: #e7e7e7;
+    --clr-sec-base: #d6d6d6;
+    --clr-sec-1: #aaaaaa;
 
-    /* last Family */
-    --clr-third--1: #e7e7e7;
-    --clr-third-base: #d6d6d6;
-    --clr-third-1: #aaaaaa;
+    /* third Family */
+    --clr-third--1: #68a2ff;
+    --clr-third-base: #3B82F6;
+    --clr-third-1: #2a5fb4;
+
 
 
 

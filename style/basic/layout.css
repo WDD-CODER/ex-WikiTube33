@@ -4,21 +4,18 @@
 
     justify-items: center;
 
-    padding: .5em;
-
     border: 1px black solid;
+    border-radius: 2vh;
     background-color: var(--clr-primary--1);
 }
 
 
 .main-content-layout {
     display: grid;
-    /* grid-template-columns: 40% 60%; */
 
     grid-column: 2;
     justify-items: center;
 
-    /* padding: 1em; */
     gap: 1em;
 
     width: 100%;

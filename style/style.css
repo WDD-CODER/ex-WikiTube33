@@ -15,6 +15,7 @@
 @import url('/style/components.css/search-bar.css');
 @import url('/style/components.css/wiki-info.css');
 @import url('/style/components.css/main-header.css');
+@import url('/style/components.css/footer.css');
 
 /* MQ */
 @import url('/style/setup/mq.css');
