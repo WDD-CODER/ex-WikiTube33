@@ -5,5 +5,10 @@
 @media (min-width: 780px) {}
 
 /* Large  */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+html{
+    margin: 1em;
+}
+
+}
 

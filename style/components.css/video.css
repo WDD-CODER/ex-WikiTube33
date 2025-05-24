@@ -13,7 +13,7 @@
 
 .video-card {
     display: grid;
-    grid-template-columns: minmax(30px, 60%) 40%;
+    grid-template-columns: minmax(auto, 50%) 50%;
 
     /* align-items: center; */
     /* prevents grid rows from stretching */
@@ -31,6 +31,8 @@
 .video-card figure {
     grid-column: 2;
     grid-row: 1/4;
+    max-width: 320px;
+    /* min-height: 180px; */
 }
 
 figure img {
