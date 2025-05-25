@@ -68,13 +68,19 @@ function renderSearchedForItems() {
 
 
 // READ
-function onShowModal() {
-    document.querySelector('.clear-storage-modal').showModal()
+function onShowModal(el) {
+    document.querySelector('.theme-color').value = getComputedStyle(document.body).getPropertyValue('--clr-background-base');
+    if (el.classList.contains('Change-theme')) document.querySelector('.Change-theme.modal').showModal()
+    else document.querySelector('.clear-storage.modal').showModal()
 }
 
-function onCloseModal(ev) {
-    document.querySelector('.clear-storage-modal').close()
+function onCloseModal(el) {
+    console.log("🚀 ~ onCloseModal ~ el:", el)
+    if (el.classList.contains('Change-theme')) document.querySelector('.Change-theme.modal').close()
+    else document.querySelector('.clear-storage.modal').close()
 }
+
+
 function onSearchVideo(ev) {
     ev.preventDefault()
     var str = document.querySelector('#searchBar').value
@@ -82,6 +88,10 @@ function onSearchVideo(ev) {
 }
 
 // UPDATE
+function onchangeTheme() {
+    var color = document.querySelector('.theme-color').value
+    document.documentElement.style.setProperty('--clr-background-base', color);
+}
 
 function onShowVideoCard(idx) {
     document.querySelector('.video-list').hidden = false

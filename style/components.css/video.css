@@ -25,7 +25,7 @@
 
     border-radius: 2vh;
     border: 1px black solid;
-    background-color: var(--clr-primary--2);
+    background-color: var(--clr-background-base);
 }
 
 .video-card figure {

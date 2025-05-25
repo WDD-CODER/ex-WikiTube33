@@ -6,7 +6,7 @@
 
     border: 1px black solid;
     border-radius: 2vh;
-    background-color: var(--clr-primary--1);
+    background-color: var(--clr-background-base);
 }
 
 
@@ -19,5 +19,5 @@
     gap: 1em;
 
     width: 100%;
-    background-color: var(--clr-primary--1);
+    background-color: var(--clr-background-base);
 }

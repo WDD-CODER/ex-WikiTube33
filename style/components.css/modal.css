@@ -1,4 +1,4 @@
-.clear-storage-modal::backdrop {
+.modal::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -9,11 +9,9 @@
     gap: 1em;
     justify-items: center;
     text-align: center;
-
-
 }
 
-.clear-storage-modal  {
+.modal  {
     color: var(--clr-White-base);
 
     border-radius: 8px;

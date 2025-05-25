@@ -1,10 +1,13 @@
 footer {
+    display: grid;
+    grid-auto-flow: column;
     grid-column: 1/-1;
     grid-row: 3;
 
     margin-top: 2em;
 
     place-content: center;
+    align-items: center;
 
     text-align: center;
     width: 100%;

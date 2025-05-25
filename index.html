@@ -10,7 +10,22 @@
 </head>
 
 <body onload="onInit()" class="main-layout">
-    <h2 class="main-header">WikiTube</h2>
+    <h2 class="main-header">WikiTube
+        <span class="Change-theme span">
+            <button type="button" onclick="onShowModal(this)" class="Change-theme">🎨Change theme</button>
+        </span>
+    </h2>
+    <dialog class="Change-theme modal">
+        <form method="dialog" class="modal-content" onsubmit="onchangeTheme()">
+            <span class="modal-text">Choose a different background color</span>
+            <input type="color" class="theme-color" >
+            <div>
+                <button class="confirm">Yes</button>
+                <button class="Change-theme deny" type="button"  onclick="onCloseModal(this)">No</button>
+            </div>
+        </form>
+    </dialog>
+
     <main class="main-content-layout">
         <div class="search-bar">
             <form onsubmit="onSearchVideo(event)">
@@ -24,13 +39,13 @@
         <div class="wiki-info container"></div>
     </main>
     <footer> Already searched for: <span class="searched-for"></span><button class="clear-storage"
-            onclick="onShowModal()">Clear</button> </footer>
-    <dialog class="clear-storage-modal">
+            onclick="onShowModal(this)">Clear</button> </footer>
+    <dialog class="modal">
         <form method="dialog" class="modal-content" onsubmit="onClearStorage()">
             <span>Are you sure you wanna clear your storage?</span>
             <div>
                 <button class="confirm">Yes</button>
-                <button class="deny" type="button" onclick="onCloseModal(event)">No</button>
+                <button class="clear-storage deny" type="button" onclick="onCloseModal(this)">No</button>
             </div>
         </form>
     </dialog>

@@ -17,7 +17,7 @@
     border-radius: 2vh;
     border: 1px black solid;
 
-color: var(--clr-primary-base);
+    color: var(--clr-primary-base);
     background-color: var(--clr-sec-1);
 }
 
