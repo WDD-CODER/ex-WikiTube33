@@ -2,12 +2,63 @@
 @media (max-width:735px) {}
 
 /* Medium */
-@media (min-width: 780px) {}
+@media (min-width: 950px) {
+        .main-content-layout {
+    grid-template-columns: 800px ;
+    margin-inline: 20px;
+}
+
+}
 
 /* Large  */
-@media (min-width: 1000px) {
-html{
+@media (min-width: 1300px) {
+    .main-content-layout {
+    grid-template-columns: minmax(30px, auto) 800px minmax(30px, auto);
 }
+
+.main-layout {
+    grid-template-columns: minmax(30px, auto) 1fr minmax(30px, auto);
 
 }
 
+.main-content-layout {
+    grid-template-columns: minmax(600px, auto);
+    grid-column: 2;
+
+    justify-items: center;
+
+    gap: 1em;
+
+    width: 100%;
+    background-color: var(--clr-background-base);
+}
+
+video {
+    grid-column: -1;
+}
+
+.search-bar {
+    grid-column: 2;
+}
+
+.video-list {
+    grid-column: 1;
+    grid-row: 1/4;
+}
+
+.video-card p {
+    grid-column: 1;
+}
+
+.video-player {
+    grid-column: 2;
+}
+
+.wiki-info {
+    grid-column: 2;
+}
+
+/* img{
+    min-width: 280px;
+} */
+}

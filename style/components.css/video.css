@@ -1,8 +1,5 @@
 .video-list {
     display: grid;
-    grid-column: 1;
-    grid-row: 1/4;
-
     justify-items: center;
 
     padding: .5em;
@@ -15,13 +12,11 @@
     display: grid;
     grid-template-columns: minmax(auto, 50%) 50%;
 
-    /* align-items: center; */
-    /* prevents grid rows from stretching */
-    /* justify-items: start; */
     place-items: center;
 
+    
     gap: 1em;
-    padding: .5em;
+    padding: 1em;
 
     border-radius: 2vh;
     border: 1px black solid;
@@ -45,7 +40,6 @@ figure img {
 }
 
 .video-card p {
-    grid-column: 1;
     grid-row: 3;
     width: 100%;
     overflow: hidden;
@@ -56,8 +50,9 @@ figure img {
 }
 
 .video-player {
-    grid-column: 2;
-    width: 100%;
+    /* grid-column: 1; */
+    grid-row: 2;
+    min-width: 580px;
     min-height: 400px;
 
     border-radius: 2vh;

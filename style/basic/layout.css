@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(30px, auto) 1fr minmax(30px, auto);
 
+    justify-self: center;
     justify-items: center;
 
     border: 1px black solid;
@@ -12,8 +13,9 @@
 
 .main-content-layout {
     display: grid;
-
+    grid-template-columns: 600px;
     grid-column: 2;
+
     justify-items: center;
 
     gap: 1em;

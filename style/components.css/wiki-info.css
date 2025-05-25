@@ -1,13 +1,12 @@
 .wiki-info {
     display: grid;
-    grid-column: 2;
     gap: 1em;
     /* border: 1px black solid; */
 }
 
 .wiki-article {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* flex-direction: column; */
 
     padding: 1em;
     gap: 1em;
