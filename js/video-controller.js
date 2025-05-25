@@ -11,6 +11,7 @@ function onInit() {
 function ApplyFirstSearch() {
     document.querySelector('#searchBar').value = defaultSearchValue
     renderVideos(defaultSearchValue)
+    renderSearchedForItems()
 }
 
 
@@ -56,9 +57,10 @@ function renderVideoPlayer() {
 }
 function renderSearchedForItems() {
     let elSpan = document.querySelector('.searched-for')
-  var res =  getSearchedForItems().map(item => ' ' + item )
-  console.log("🚀 ~ renderSearchedForItems ~ res:", res)
-  elSpan.innerText = res
+    const searchedItems = getSearchedForItems()
+    if (!searchedItems.length) return elSpan.innerText = ''
+    var res = getSearchedForItems().map(item => ' ' + item)
+    elSpan.innerText = res
 }
 
 
@@ -84,5 +86,7 @@ function onShowVideo() {
 }
 
 // DELETE
-
+function onClearStorage(){
+    clearStorage()
+}
 

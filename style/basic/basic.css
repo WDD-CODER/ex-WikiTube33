@@ -8,7 +8,7 @@ html {
     margin: .5em;
 
     font-family: 'fredoka';
-    
+
     color: var(--clr-white-base);
     background: var(--clr-primary-base);
 }
@@ -20,4 +20,8 @@ h2 {
 
 video {
     grid-column: -1;
+}
+
+button {
+    cursor: pointer;
 }

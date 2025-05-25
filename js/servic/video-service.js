@@ -73,13 +73,12 @@ function getGCache() {
     return gCache
 }
 function getSearchedForItems() {
-    if (!gCache.length) return
+    if (!gCache.length) return []
     const searchItems = []
     gCache.forEach(item => {
-        console.log("🚀 ~ getSearchedForItems ~ searchItems:", searchItems)
         if (item.searchValue !== undefined && !searchItems.includes(item.searchValue)) searchItems.push(item.searchValue)
     })
-    return searchItems
+    return searchItems 
 }
 // UPDATE
 function updateGCache(data) {
@@ -106,3 +105,9 @@ function formattedVideoData(data, searchValue) {
     return formattedArray
 }
 // DELETE
+
+function clearStorage(){
+    localStorage.clear()
+    gCache = []
+    renderSearchedForItems()
+}
