@@ -11,7 +11,7 @@
 }
 
 /* Large  */
-@media (min-width: 1300px) {
+@media (min-width: 1322px) {
     .main-content-layout {
     grid-template-columns: minmax(30px, auto) 800px minmax(30px, auto);
 }
@@ -22,7 +22,7 @@
 }
 
 .main-content-layout {
-    grid-template-columns: minmax(600px, auto);
+    grid-template-columns: minmax(600px, 50%) 50%;
     grid-column: 2;
 
     justify-items: center;

@@ -13,7 +13,6 @@ function onAskVideos(str) {
     gSearchValue = searchValue
     if (isVideoInCache(searchValue)) {
         console.log('from cache')
-        // return gCache
         return Promise.resolve(gCache)
     }
 
@@ -24,8 +23,8 @@ function onAskVideos(str) {
             return res.data.items
         })
         .then(ans => {
-            let formattedAns = formattedVideoData(ans, searchValue)
-            updateGCache(formattedAns)
+            let formattedResults  = formattedVideoData(ans, searchValue)
+            updateGCache(formattedResults )
             saveToStorage(G_CACHE_KEY, gCache)
             renderSearchedForItems()
         })
@@ -50,7 +49,6 @@ function publishTime(str) {
 // READ
 
 function isVideoInCache(searchValue) {
-    // const parameter = data.videoTitle ? 'videoTitle' : 'articleTitle'
     if (!gCache) return false
     return gCache.some((item, idx) => item.searchValue === searchValue)
 }
@@ -79,8 +77,9 @@ function getSearchedForItems() {
     gCache.forEach(item => {
         if (item.searchValue !== undefined && !searchItems.includes(item.searchValue)) searchItems.push(item.searchValue)
     })
-    return searchItems 
+    return searchItems
 }
+
 // UPDATE
 function updateGCache(data) {
     const parameter = data[0].searchTitle ? 'articleTitle' : 'videoTitle'
@@ -105,10 +104,10 @@ function formattedVideoData(data, searchValue) {
     })
     return formattedArray
 }
+
 // DELETE
 
-function clearStorage(){
-    console.log('clearStorage')
+function clearStorage() {
     localStorage.clear()
     gCache = []
     renderSearchedForItems()

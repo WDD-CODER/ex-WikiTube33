@@ -17,10 +17,10 @@ function getWikipediaQuery(str) {
             return res.data.query
         })
         .then(ans => {
-            let formattedAns = formattedWikiData(ans, searchValue)
-            updateGCache(formattedAns)
+            let formattedResults = formattedWikiData(ans, searchValue)
+            updateGCache(formattedResults)
             saveToStorage(G_CACHE_KEY, gCache)
-            return Promise.resolve(formattedAns)
+            return Promise.resolve(formattedResults)
         })
         .catch(() => { console.log('problem loading wiki api') })
 
