@@ -18,6 +18,6 @@
 @import url('./components.css/footer.css');
 
 /* MQ */
-@import url('/style/setup/mq.css');
+@import url('./setup/mq.css');
 
  
