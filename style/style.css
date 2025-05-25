@@ -1,23 +1,23 @@
 
  /* SETUP */
-@import url('/style/setup/vars.css');
-@import url('/style/setup/typography.css');
-@import url('/style/setup/mq.css');
+@import url('style/setup/vars.css');
+@import url('style/setup/typography.css');
+@import url('style/setup/mq.css');
 
 /* BASICS */
-@import url('/style/basic/rest.css');
-@import url('/style/basic/basic.css');
-@import url('/style/basic/helpers.css');
-@import url('/style/basic/layout.css');
+@import url('style/basic/rest.css');
+@import url('style/basic/basic.css');
+@import url('style/basic/helpers.css');
+@import url('style/basic/layout.css');
 
 /* COMPONENTS */
-@import url('/style/components.css/video.css');
-@import url('/style/components.css/search-bar.css');
-@import url('/style/components.css/wiki-info.css');
-@import url('/style/components.css/main-header.css');
-@import url('/style/components.css/footer.css');
+@import url('style/components.css/video.css');
+@import url('style/components.css/search-bar.css');
+@import url('style/components.css/wiki-info.css');
+@import url('style/components.css/main-header.css');
+@import url('style/components.css/footer.css');
 
 /* MQ */
-@import url('/style/setup/mq.css');
+@import url('style/setup/mq.css');
 
  
