@@ -54,6 +54,12 @@ function renderVideoPlayer() {
     elIframe.onload = onShowVideo()
     elIframe.src = videoUrl
 }
+function renderSearchedForItems() {
+    let elSpan = document.querySelector('.searched-for')
+  var res =  getSearchedForItems().map(item => ' ' + item )
+  console.log("🚀 ~ renderSearchedForItems ~ res:", res)
+  elSpan.innerText = res
+}
 
 
 // CREATE

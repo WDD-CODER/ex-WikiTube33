@@ -27,6 +27,7 @@ function onAskVideos(str) {
             let formattedAns = formattedVideoData(ans, searchValue)
             updateGCache(formattedAns)
             saveToStorage(G_CACHE_KEY, gCache)
+            renderSearchedForItems()
         })
         .catch(() => console.log('loading from the api failed.'))
 
@@ -71,7 +72,15 @@ function getGVideo() {
 function getGCache() {
     return gCache
 }
-
+function getSearchedForItems() {
+    if (!gCache.length) return
+    const searchItems = []
+    gCache.forEach(item => {
+        console.log("🚀 ~ getSearchedForItems ~ searchItems:", searchItems)
+        if (item.searchValue !== undefined && !searchItems.includes(item.searchValue)) searchItems.push(item.searchValue)
+    })
+    return searchItems
+}
 // UPDATE
 function updateGCache(data) {
     const parameter = data[0].searchTitle ? 'articleTitle' : 'videoTitle'
