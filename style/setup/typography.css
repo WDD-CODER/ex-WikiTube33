@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'fredoka';
-	src: url('/style/assaets/fonts/Fredoka/static/Fredoka-Regular.ttf');
+	src: url('../assaets/fonts/Fredoka/static/Fredoka-Regular.ttf');
 }
 
 @font-face {
 	font-family: 'Rubik_Doodle_Shadow';
-	src: url('/style/assaets/fonts/Rubik_Doodle_Shadow/RubikDoodleShadow-Regular.ttf');
+	src: url('../assaets/fonts/Rubik_Doodle_Shadow/RubikDoodleShadow-Regular.ttf');
 }
 
 /* .fa::before {
