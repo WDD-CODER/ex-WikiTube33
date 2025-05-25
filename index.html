@@ -23,7 +23,17 @@
         </iframe>
         <div class="wiki-info container"></div>
     </main>
-    <footer> Already searched for: <span class="searched-for"></span><button class="clear-storage" onclick="onClearStorage()">Clear</button> </footer>
+    <footer> Already searched for: <span class="searched-for"></span><button class="clear-storage"
+            onclick="onShowModal()">Clear</button> </footer>
+    <dialog class="clear-storage-modal">
+        <form method="dialog" class="modal-content" onsubmit="onClearStorage()">
+            <span>Are you sure you wanna clear your storage?</span>
+            <div>
+                <button class="confirm">Yes</button>
+                <button class="deny" type="button" onclick="onCloseModal(event)">No</button>
+            </div>
+        </form>
+    </dialog>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/servic/storage-service.js"></script>
     <script src="js/servic/wiki-service.js"></script>

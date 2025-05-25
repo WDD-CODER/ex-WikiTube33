@@ -68,7 +68,13 @@ function renderSearchedForItems() {
 
 
 // READ
+function onShowModal() {
+    document.querySelector('.clear-storage-modal').showModal()
+}
 
+function onCloseModal(ev) {
+    document.querySelector('.clear-storage-modal').close()
+}
 function onSearchVideo(ev) {
     ev.preventDefault()
     var str = document.querySelector('#searchBar').value
@@ -86,7 +92,7 @@ function onShowVideo() {
 }
 
 // DELETE
-function onClearStorage(){
+function onClearStorage() {
     clearStorage()
 }
 

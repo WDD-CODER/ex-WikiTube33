@@ -69,11 +69,12 @@ function getGVideo() {
     if (!gSearchValue) gSearchValue = gCache[0].searchValue
     return gSearchValue
 }
+
 function getGCache() {
     return gCache
 }
 function getSearchedForItems() {
-    if (!gCache.length) return []
+    if (!gCache || !gCache.length) return []
     const searchItems = []
     gCache.forEach(item => {
         if (item.searchValue !== undefined && !searchItems.includes(item.searchValue)) searchItems.push(item.searchValue)
@@ -107,6 +108,7 @@ function formattedVideoData(data, searchValue) {
 // DELETE
 
 function clearStorage(){
+    console.log('clearStorage')
     localStorage.clear()
     gCache = []
     renderSearchedForItems()
