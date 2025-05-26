@@ -9,9 +9,10 @@ function onRenderWiki(str) {
 
 
 function renderWikiArticle(ans) {
+    console.log("🚀 ~ renderWikiArticle ~ ans:", ans)
     var strMainHTML = []
     ans.forEach((article, idx) => {
-        if (article.articleTitle && article.searchTitle === getGVideo() ) {
+        if (article.articleTitle && article.searchValue === getLastSearchValue() ) {
             let strHTML = `
             <div class="wiki-article" id="article${idx}">
             <h4 class="article-title">${article.articleTitle}</h4>  

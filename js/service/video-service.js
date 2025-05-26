@@ -63,7 +63,7 @@ function getVideos(str) {
     }
 }
 
-function getGVideo() {
+function getLastSearchValue() {
     if (!gSearchValue) gSearchValue = gCache[0].searchValue
     return gSearchValue
 }

@@ -1,14 +1,14 @@
 'use strict';
 // const G_CACHE_KEY = 'gCacheDB'
-// const WIKI_CACHE_KEY = 'wikiCacheDB'
+const WIKI_CACHE_KEY = 'wikiCacheDB'
+var gWikiArticles = loadFromStorage(WIKI_CACHE_KEY) || []
 
-
-function getWikipediaQuery(str) {
-    const searchValue = str || getGVideo()
+function getWikipediaQuery(text) {
+    const searchValue = text || getLastSearchValue()
     const WikipediaUrl = `https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=${searchValue}&srlimit=5&format=json`
     if (isWikiInCache(searchValue)) {
         console.log('from cache')
-        return Promise.resolve(gCache)
+        return Promise.resolve(gWikiArticles)
     }
 
     return axios.get(WikipediaUrl)
@@ -18,9 +18,9 @@ function getWikipediaQuery(str) {
         })
         .then(ans => {
             let formattedResults = formattedWikiData(ans, searchValue)
-            updateGCache(formattedResults)
-            saveToStorage(G_CACHE_KEY, gCache)
-            return Promise.resolve(formattedResults)
+            updateWikiCache(formattedResults)
+            saveToStorage(WIKI_CACHE_KEY, gWikiArticles)
+            return Promise.resolve(gWikiArticles)
         })
         .catch(() => { console.log('problem loading wiki api') })
 
@@ -29,18 +29,28 @@ function getWikipediaQuery(str) {
 // LIST
 // CREATE
 // READ
-function isWikiInCache(str) {
-    if (!gCache.length) return false
-    const parameter = 'searchTitle'
-    const exist = gCache.some(item => item[parameter] === str)
+function isWikiInCache(text) {
+    if (!gWikiArticles.length) return false
+    const exist = gWikiArticles.some(item => item.searchTitle === text)
     return exist
 }
 
-function getGCache() {
-    return gCache
+function getGWikiArticles() {
+    return gWikiArticles
 }
 
 // UPDATE 
+function updateWikiCache(data) {
+    // const parameter = data[0].searchTitle ? 'articleTitle' : 'videoTitle'
+    if (!gWikiArticles) gWikiArticles = []
+    data.forEach(newItem => {
+        const exist = gWikiArticles.some(item => item.articleTitle === newItem.articleTitle)
+        if (!exist) gWikiArticles.push(newItem)
+    })
+    return gCache
+}
+
+
 function formattedWikiData(data, searchValue) {
     if (!data.search) {
         alert('No info in wiki regarding your search')
@@ -50,8 +60,7 @@ function formattedWikiData(data, searchValue) {
         const { title, snippet } = item
         let text = snippet
         let articleTitle = title
-        let searchTitle = searchValue
-        const formattedData = { searchTitle, articleTitle, text }
+        const formattedData = { searchValue, articleTitle, text }
         return formattedData
     })
     return formattedArray

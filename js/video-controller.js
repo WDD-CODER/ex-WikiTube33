@@ -25,9 +25,10 @@ function renderVideos(str) {
         .catch(err => console.log(err))
 }
 
-function renderPreviewVideos(ans) {
-    var res = getGCache().map((video, idx) => {
-        if (video.searchValue && video.searchValue === getGVideo()) {
+function renderPreviewVideos() {
+    var videos = []
+     getGCache().forEach((video, idx) => {
+        if (video.searchValue && video.searchValue === getLastSearchValue()) {
             const strHTML = `
              <div class="video-card" id="video${idx}">
                 <figure>
@@ -40,16 +41,21 @@ function renderPreviewVideos(ans) {
                   <p class="description">${video.description}</p>
             </div>
  `
-            return strHTML
+            videos.push(strHTML)
         }
     })
-    document.querySelector('.video-list').innerHTML = res.join('')
+    console.log("🚀 ~ res ~ res:", videos)
+    document.querySelector('.video-list').innerHTML = videos.join('')
 }
 
 //לא מבין למה זה עובד רק עם הקישור הקבוע שקבלתי באינטרנט ולא עם התעודת זהות
 
 function renderVideoPlayer() {
-    const id = 'tgbNymZ7vqY'
+    const curVideoSearch = getLastSearchValue()
+    // const id = 'tgbNymZ7vqY'
+    
+    const id = getGCache().find(video => video.searchValue === curVideoSearch).id
+    console.log('id', id)
     const videoUrl = `https://www.youtube.com/embed/${id}`
     let elIframe = document.querySelector('.video-player')
     elIframe.onload = onShowVideo()
@@ -70,11 +76,9 @@ function renderSearchedForItems() {
 // READ
 function onShowModal(el) {
     if (el.classList.contains('Change-theme')) {
-        
         document.querySelector('.theme-color').value = getComputedStyle(document.body).getPropertyValue('--clr-background-base');
         document.querySelector('.Change-theme.modal').showModal()
     }
-    
     else document.querySelector('.clear-storage.modal').showModal()
 }
 
