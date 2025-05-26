@@ -11,11 +11,12 @@
     text-align: center;
 }
 
-.modal  {
+.modal {
     color: var(--clr-White-base);
 
     border-radius: 8px;
     border: 1px var(--clr-sec--1) dotted;
+    background-color: var(--clr-primary-1);
     background-color: var(--clr-primary-1);
 }
 

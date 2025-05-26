@@ -38,14 +38,14 @@
         </iframe>
         <div class="wiki-info container"></div>
     </main>
-    <footer> Already searched for: <span class="searched-for"></span><button class="clear-storage"
+    <footer> Already searched for: <span class="searched-for"></span><button class="clear-storage-btn"
             onclick="onShowModal(this)">Clear</button> </footer>
-    <dialog class="modal">
+    <dialog class="clear-storage modal">
         <form method="dialog" class="modal-content" onsubmit="onClearStorage()">
             <span>Are you sure you wanna clear your storage?</span>
             <div>
                 <button class="confirm">Yes</button>
-                <button class="clear-storage deny" type="button" onclick="onCloseModal(this)">No</button>
+                <button class="deny" type="button" onclick="onCloseModal(this)">No</button>
             </div>
         </form>
     </dialog>

@@ -69,13 +69,16 @@ function renderSearchedForItems() {
 
 // READ
 function onShowModal(el) {
-    document.querySelector('.theme-color').value = getComputedStyle(document.body).getPropertyValue('--clr-background-base');
-    if (el.classList.contains('Change-theme')) document.querySelector('.Change-theme.modal').showModal()
+    if (el.classList.contains('Change-theme')) {
+        
+        document.querySelector('.theme-color').value = getComputedStyle(document.body).getPropertyValue('--clr-background-base');
+        document.querySelector('.Change-theme.modal').showModal()
+    }
+    
     else document.querySelector('.clear-storage.modal').showModal()
 }
 
 function onCloseModal(el) {
-    console.log("🚀 ~ onCloseModal ~ el:", el)
     if (el.classList.contains('Change-theme')) document.querySelector('.Change-theme.modal').close()
     else document.querySelector('.clear-storage.modal').close()
 }
